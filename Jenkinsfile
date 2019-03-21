@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-         stage("Check Azure ") {
+         stage('deploy') {
                 withCredentials([azureServicePrincipal(credentialsId: 'AzureServicePrincipal',
                                         subscriptionIdVariable: 'SUBS_ID',
                                         clientIdVariable: 'CLIENT_ID',
@@ -10,6 +10,7 @@ pipeline {
                                         tenantIdVariable: 'TENANT_ID')]) {
                 sh 'az login --service-principal -u $CLIENT_ID -p $CLIENT_SECRET -t $TENANT_ID'
                 sh 'az resource list'
+                sh 'az logout'
 
             }
         }
