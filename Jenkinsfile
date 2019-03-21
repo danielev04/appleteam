@@ -2,20 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+         stage("Check Azure ") {
+                withCredentials([azureServicePrincipal(credentialsId: 'AzureServicePrincipal',
+                                        subscriptionIdVariable: 'SUBS_ID',
+                                        clientIdVariable: 'CLIENT_ID',
+                                        clientSecretVariable: 'CLIENT_SECRET',
+                                        tenantIdVariable: 'TENANT_ID')]) {
+            sh 'az resource list --service-principal -u $CLIENT_ID -p $CLIENT_SECRET -t $TENANT_ID'
         }
     }
 }
