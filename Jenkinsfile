@@ -4,7 +4,7 @@ withCredentials([azureServicePrincipal(credentialsId: 'AzureServicePrincipal',
                         clientIdVariable: 'CLIENT_ID',
                         clientSecretVariable: 'CLIENT_SECRET',
                         tenantIdVariable: 'TENANT_ID')]) {
-sh 'az login --service-principal -u $CLIENT_ID -p $CLIENT_SECRET -t $TENANT_ID'
-sh 'az resource list'
-sh 'az logout'
-
+  sh 'az login --service-principal -u $CLIENT_ID -p $CLIENT_SECRET -t $TENANT_ID'
+  sh 'az resource list'
+  sh 'az logout'
+}
