@@ -15,14 +15,14 @@ pipeline {
                 }
             }
         }
-        stage('List Resources) {
+        stage('List Resources') {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
                     sh 'az resource list'
                 }
             }
         }
-        stage('Logout) {
+        stage('Logout') {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
                     sh 'az logout'
