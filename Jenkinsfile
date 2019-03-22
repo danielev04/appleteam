@@ -1,3 +1,3 @@
-withCredentials([azureServicePrincipal('AzureServicePrincipal99')]) {
-    
+withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
+    sh 'echo "hello world" '
 }
