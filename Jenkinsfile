@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        // define agent details
-    }
     stages {
         stage('Hello World') {
             steps {
