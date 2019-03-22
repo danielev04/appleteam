@@ -1,3 +1,3 @@
-withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
+withCredentials([azureServicePrincipal('AzureServicePrincipal99')]) {
     
 }
