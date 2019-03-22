@@ -1,3 +1,6 @@
-withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
-    sh 'echo "hello world" '
+
+node  {
+    withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
+        sh 'echo "hello world" '
+    }
 }
