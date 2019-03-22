@@ -18,7 +18,7 @@ pipeline {
         stage('List Resources') {
             steps {
                 withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
-                    sh 'az resource list'
+                    sh 'az resource list | jq '.[].name'
                 }
             }
         }
