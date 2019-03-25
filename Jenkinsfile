@@ -1,10 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Login') {
+        stage('accessVault') {
             steps {
-                withCredentials([azureServicePrincipa('AzureServicePrincipal')]) {
-                    sh ''
+                
+                withCredentials([DescriptorImpl('AzureManagedServiceID')) {
+                    sh 'az keyvault secret show --name test  --vault-name infravault99'
                 }
             }
         }
