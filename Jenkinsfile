@@ -4,7 +4,7 @@ pipeline {
         stage('accessVault') {
             steps {
                 
-                withCredentials('AzureManagedServiceID') {
+                withCredentials(['AzureManagedServiceID']) {
                     sh 'az keyvault secret show --name test  --vault-name infravault99'
                 }
             }
