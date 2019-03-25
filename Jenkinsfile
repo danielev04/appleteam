@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Login') {
             steps {
-                withCredentials([azureServicePrincipa('AzureServicePrincipal')]) {
+                withCredentials([azureServicePrincipal('AzureServicePrincipal')]) {
                     sh ''
                 }
             }
