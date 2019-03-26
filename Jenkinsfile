@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Login') {
             steps {
-                withCredentials([azureServicePrincipal('AzureManagedServiceID')]) {
+                withCredentials([AzureMsiCredential('AzureManagedServiceID')]) {
                     sh ''
                 }
             }
