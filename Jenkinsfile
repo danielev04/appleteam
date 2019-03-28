@@ -1,11 +1,11 @@
- pipeline {
+pipeline {
     agent any
     stages {
         stage('Login') {
             steps {
-                    sh 'az login --identity'
-                    sh 'az keyvault secret show --name test  --vault-name infravault99'
-                    sh '#az '
+                withCredentials([string(credentialsId: 'UMSI', variable: 'Secret')]) {
+                    sh 'echo $Secret'
+                }
             }
         }
     }
