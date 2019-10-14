@@ -45,7 +45,7 @@ pipeline {
                 echo "description"
                 
                 script {
-                    if (param.A == 'yes'){
+                    if (params.A == 'yes'){
                        sh """
                         echo 'yes'
                         """
