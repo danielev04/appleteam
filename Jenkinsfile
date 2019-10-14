@@ -41,6 +41,12 @@ pipeline {
             }
         }*/
         stage('stage 1') {
+             when {
+                expression{
+                    echo env.BRANCH_NAME
+                    return env.BRANCH_NAME = 'master';
+                }
+             }
             steps {
                 echo "description"
                 
